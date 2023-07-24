@@ -1,14 +1,9 @@
 def convertir_a_romano(numero):
-    try:
-        num = int(numero)
-        return 'TODO: convertir a romano'
-    except ValueError:
+    # Comprobar número entero
+    if isinstance(numero, (int, float)):
         print(f'Error: debes introducir un número entero ({numero})')
-        return ''
 
-
-""""
-convertir_a_romano()
-convertir_a_romano(56)
-convertir_a_romano('lo que quiera')
-"""
+    # Comprobar que número está entre 2 números
+    if not (0 < numero < 4000):
+        return f'Error: el número debe estar entre 1 y 3999 ({numero})'
+    return 'TODO: convertir a romano'
