@@ -1,12 +1,11 @@
 def convertir_a_romano(numero):
     # Comprobar número entero
-    if isinstance(numero, (int, float)):
+    if not isinstance(numero, (int, float)):
         print(f'Error: debes introducir un número entero ({numero})')
 
     # Comprobar que número está entre 2 números
     if not (0 < numero < 4000):
         return f'Error: el número debe estar entre 1 y 3999 ({numero})'
-    return 'TODO: convertir a romano'
 
     millares = ['', 'M', 'MM', 'MMM']
     centenas = ['', 'C', 'CC', 'CCC', 'CD', 'D', 'DC', 'DCC', 'DCCC', 'CM']
@@ -21,3 +20,7 @@ def convertir_a_romano(numero):
     romano = millares[millar], centenas[centena], decenas[decena], unidad[unidad]
 
     return romano
+
+
+numero_romano = convertir_a_romano(5)
+print(numero_romano)
