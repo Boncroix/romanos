@@ -33,6 +33,6 @@ def romano_a_entero(romano):
     return 'TODO: devolver el resultado'
 
 
-pruebas = ['A', '', 3, ['X', 'X', 'I'], 'I', 'MMMCMXCIX']
+pruebas = ['A', '', 4, ['X', 'X', 'I'], 'I', 'MMMCMXCIX']
 for valor in pruebas:
     print(romano_a_entero(valor))
