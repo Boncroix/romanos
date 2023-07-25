@@ -15,7 +15,7 @@ def es_numero_entero(numero, minimo, maximo):
         return False
 
     if numero <= minimo:
-        print(numero, f'está por debajo del valor mínimo {minimo}\n')
+        print(numero, f'está por debajo del valor mínimo\n')
         return False
     elif numero > maximo:
         print(numero, f'está por encima del valor máximo {maximo}\n')
