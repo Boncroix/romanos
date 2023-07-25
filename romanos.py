@@ -22,5 +22,17 @@ def convertir_a_romano(numero):
     return romano
 
 
-numero_romano = convertir_a_romano(5)
-print(numero_romano)
+def romano_a_entero(romano):
+    if not isinstance(romano, str):
+        return 'ERROR: tiene que ser un número romano en formato cadena de texto'
+
+    for letra in romano:
+        if letra not in 'IVXLCDM':
+            return f'ERROR: {letra} no es un dígito romano válido (I, V, X, L, C, D, M)'
+
+    return 'TODO: devolver el resultado'
+
+
+pruebas = ['A', '', 3, ['X', 'X', 'I'], 'I', 'MMMCMXCIX']
+for valor in pruebas:
+    print(romano_a_entero(valor))
