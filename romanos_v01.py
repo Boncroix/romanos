@@ -24,7 +24,7 @@ def es_numero_entero(numero, minimo, maximo):
     return True
 
 
-def convertir_romano(numero):
+def convertir_romano(numero):  # entrada tiene que ser una cadena
     millares = ['', 'M', 'MM', 'MMM']
     centenas = ['', 'C', 'CC', 'CCC', 'CD', 'D', 'DC', 'DCC', 'DCCC', 'CM']
     decenas = ['', 'X', 'XX', 'XXX', 'XL', 'L', 'LX', 'LXX', 'LXXX', 'XC']
