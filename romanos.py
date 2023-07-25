@@ -23,16 +23,28 @@ def convertir_a_romano(numero):
 
 
 def romano_a_entero(romano):
+    digitos_romanos = {'I': 1,
+                       'V': 5,
+                       'X': 10,
+                       'L': 50,
+                       'C': 100,
+                       'D': 500,
+                       'M': 1000
+                       }
+
     if not isinstance(romano, str):
         return 'ERROR: tiene que ser un número romano en formato cadena de texto'
 
+    resultado = 0
     for letra in romano:
-        if letra not in 'IVXLCDM':
+        if letra not in digitos_romanos:
             return f'ERROR: {letra} no es un dígito romano válido (I, V, X, L, C, D, M)'
+        resultado = resultado + digitos_romanos[letra]
 
-    return 'TODO: devolver el resultado'
+    return resultado
 
 
-pruebas = ['A', '', 4, ['X', 'X', 'I'], 'I', 'MMMCMXCIX']
-for valor in pruebas:
+errores = ['A', '', 4, ['X', 'X', 'I'], 'IV']
+pruebas = ['I', 'MMMCMXCIX']
+for valor in errores:
     print(romano_a_entero(valor))
