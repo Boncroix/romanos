@@ -53,7 +53,7 @@ def romano_a_entero(romano):
         letra_repetida = romano.count(letra)
         if letra_repetida > 3:
             raise ValueError(
-                'ERROR: Numero romano no valido letra repetida más de 3 veces')
+                f'ERROR: Numero romano no valido la letra {letra} repetida más de 3 veces')
 
         if letra not in digitos_romanos:
             raise ValueError(
@@ -88,9 +88,12 @@ pruebas = ['IIII', 'I', 'MCXXIII', 'VIII', 'LVI', 'IV',
            'IX', 'XC', 'CM', 'IC', 'IM', 'XM', 'ID', 'VX']
 
 
-print(romano_a_entero('XIIII'))
-'''
 for valor in pruebas:
-    print(romano_a_entero(valor))
-# print(romano_a_entero('MCXCIV'))
-'''
+    try:
+        print(romano_a_entero(valor))
+    except TypeError as te:
+        print('Uy! el tipo no es válido')
+    except ValueError as ve:
+        print('Va a ser que esa cadena no es un número romano valido')
+    except Exception as ex:
+        print('Hey!!! Alto ha salido mal', ex)
