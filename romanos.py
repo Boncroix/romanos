@@ -83,6 +83,7 @@ def romano_a_entero(romano):
     return resultado
 
 
+'''
 errores = ['A', '', 3, ['X', 'X', 'I']]
 pruebas = ['IIII', 'I', 'MCXXIII', 'VIII', 'LVI', 'IV',
            'IX', 'XC', 'CM', 'IC', 'IM', 'XM', 'ID', 'VX']
@@ -97,3 +98,4 @@ for valor in pruebas:
         print('Va a ser que esa cadena no es un número romano valido')
     except Exception as ex:
         print('Hey!!! Alto ha salido mal', ex)
+'''
