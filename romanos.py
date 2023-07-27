@@ -29,6 +29,8 @@ def convertir_a_romano(numero):
 
 
 def romano_a_entero(romano):
+    romano = romano.upper()
+
     digitos_romanos = {
         'I': 1,
         'V': 5,
@@ -56,6 +58,7 @@ def romano_a_entero(romano):
         if letra not in digitos_romanos:
             raise ValueError(
                 f'ERROR: {letra} no es un dígito romano válido (I, V, X, L, C, D, M)')
+
         actual = digitos_romanos[letra]
 
         if anterior < actual:
@@ -85,6 +88,9 @@ pruebas = ['IIII', 'I', 'MCXXIII', 'VIII', 'LVI', 'IV',
            'IX', 'XC', 'CM', 'IC', 'IM', 'XM', 'ID', 'VX']
 
 
+print(romano_a_entero('XIIII'))
+'''
 for valor in pruebas:
     print(romano_a_entero(valor))
 # print(romano_a_entero('MCXCIV'))
+'''
