@@ -47,6 +47,7 @@ def romano_a_entero(romano):
 
     resultado = 0
     anterior = 0
+    super_anterior = 0
 
     for letra in romano:
 
@@ -69,6 +70,9 @@ def romano_a_entero(romano):
                 raise ValueError(
                     f"ERROR: resta no posible (ant: {anterior}, act: {actual})")
 
+            if anterior > 0 and actual > super_anterior > 0:
+                raise ValueError(f'ERROR: dos restas consecutivas')
+
             # deshacer la suma (que hemos hecho en la iteración anterior)
             # DCI --- DC
             resultado = resultado - anterior
@@ -78,6 +82,7 @@ def romano_a_entero(romano):
         else:
             resultado = resultado + actual
 
+        super_anterior = anterior
         anterior = actual
 
     return resultado
