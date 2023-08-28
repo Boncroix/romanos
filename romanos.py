@@ -104,4 +104,7 @@ class RomanNumber:
         return self.cadena
 
     def __repr__(self):
-        return self.__str__()
+        return f'Objeto: {self.__str__()}'
+
+    def __eq__(self, otro):
+        return self.valor == otro or self.cadena == otro
