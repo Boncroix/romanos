@@ -106,7 +106,7 @@ class RomanNumber:
     def __repr__(self):
         return f'Objeto: {self.__str__()}'
 
-    # Operadores
+    # Operadores logicos
     def __eq__(self, otro):  # operador igual
         return self.valor == otro or self.cadena == otro
 
@@ -148,3 +148,64 @@ class RomanNumber:
             return self.cadena > otro
         raise ValueError(
             'Solo puedo comparar numeros romanos, enteros o cadenas')
+
+    # Operadores aritméticos __add__ funcion normal para sumar __radd__ igual pero le da la vuelta a los valores
+
+    def __add__(self, otro):  # sumar
+        # Núnero romano
+        if isinstance(otro, RomanNumber):
+            # devolvemos siempre un número romano llamando a RomanNumber
+            return RomanNumber(self.valor + otro.valor)
+        # entero
+        if isinstance(otro, int):
+            return RomanNumber(self.valor + otro)
+        # cadena
+        if isinstance(otro, str):
+            return self.valor + RomanNumber(otro).valor
+        raise ValueError(
+            'Solo puedo sumar RomanNumber, cadena o entero')
+
+    def __radd__(self, otro):   # Suma en orden inverso __radd__ se puede girar por que es conmutativo
+        return self.__add__(otro)
+
+    def __sub__(self, otro):    # restar
+        resta = 0
+        # Núnero romano
+        if isinstance(otro, RomanNumber):
+            resta = self.valor - otro.valor
+        # entero
+        elif isinstance(otro, int):
+            resta = self.valor - otro
+        # cadena
+        elif isinstance(otro, str):
+            resta = self.valor - RomanNumber(otro).valor
+        else:
+            raise ValueError(
+                'Solo puedo restar RomanNumber, cadena o entero')
+
+        if resta <= 0:
+            raise ValueError(
+                'Un número romano no puede ser negativo. No puedo hacer la resta.')
+        else:
+            return RomanNumber(resta)
+
+    def __rsub__(self, otro):   # Restar en orden inverso __rsub__ no se puede girar
+        resta = 0
+        # Núnero romano
+        if isinstance(otro, RomanNumber):
+            resta = otro.valor - self.valor
+        # entero
+        elif isinstance(otro, int):
+            resta = otro - self.valor
+        # cadena
+        elif isinstance(otro, str):
+            resta = RomanNumber(otro).valor - self.valor
+        else:
+            raise ValueError(
+                'Solo puedo restar RomanNumber, cadena o entero')
+
+        if resta <= 0:
+            raise ValueError(
+                'Un número romano no puede ser negativo. No puedo hacer la resta.')
+        else:
+            return RomanNumber(resta)
