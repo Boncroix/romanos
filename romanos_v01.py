@@ -73,6 +73,15 @@ class RomanNumber:
             lista_romanos.remove(lista_romanos[0])
         return resultado
 
+    def __str__(self):
+        return self.cadena
+
+    def __repr__(self):
+        return f'Objeto: {self.__str__()}'
+
+    def __eq__(self, otro):
+        return self.valor == otro or self.cadena == otro
+
 
 numero = RomanNumber(1123)
 print(numero.valor)
