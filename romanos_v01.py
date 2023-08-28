@@ -49,11 +49,12 @@ class RomanNumber:
                 raise ValueError(
                     f'ERROR: {letra} no es un dígito romano válido (I, V, X, L, C, D, M)')
 
-        lista_romanos = list(romanos)  # Convierto la entrada en una lista
-        lista_romanos.reverse()  # Giramos la lista
-        resultado = 0              #
-        numero_anterior = 0        # Inicializamos variables que vamos a utilizar en le while
-        resta = False              #
+        lista_romanos = list(romanos)   # Convierto la entrada en una lista
+        lista_romanos.reverse()         # Giramos la lista
+        resultado = 0                   #
+        # Inicializamos variables que vamos a utilizar en le while
+        numero_anterior = 0
+        resta = False                   #
 
         # Comprobamos si resta o suma o si la resta no es posible
         while len(lista_romanos) != 0:
