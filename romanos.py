@@ -106,18 +106,45 @@ class RomanNumber:
     def __repr__(self):
         return f'Objeto: {self.__str__()}'
 
+    # Operadores
     def __eq__(self, otro):  # operador igual
         return self.valor == otro or self.cadena == otro
 
     def __ne__(self, otro):  # operador desigual
         # Núnero romano
         if isinstance(otro, RomanNumber):
-            return self.valor != otro
+            return self.valor != otro.valor
         # entero
         if isinstance(otro, int):
             return self.valor != otro
         # cadena
         if isinstance(otro, str):
             return self.cadena != otro
+        raise ValueError(
+            'Solo puedo comparar numeros romanos, enteros o cadenas')
+
+    def __lt__(self, otro):  # menor que
+        # Núnero romano
+        if isinstance(otro, RomanNumber):
+            return self.valor < otro.valor
+        # entero
+        if isinstance(otro, int):
+            return self.valor < otro
+        # cadena
+        if isinstance(otro, str):
+            return self.cadena < otro
+        raise ValueError(
+            'Solo puedo comparar numeros romanos, enteros o cadenas')
+
+    def __gt__(self, otro):  # mayor que
+        # Núnero romano
+        if isinstance(otro, RomanNumber):
+            return self.valor > otro.valor
+        # entero
+        if isinstance(otro, int):
+            return self.valor > otro
+        # cadena
+        if isinstance(otro, str):
+            return self.cadena > otro
         raise ValueError(
             'Solo puedo comparar numeros romanos, enteros o cadenas')
